@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>AmortiPay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="navbar sticky-top">
+        <div class="logo">
+            <img src="logo.png" alt="AmortiPay Logo">
+        </div>
+        <div class="items">
+            <div class="nav-items">
+                <ul class="nav-links">
+                    <li><a href="index.html">HOME</a></li>
+                    <li>|</li>
+                    <li><a href="tracking.html">TRACKING</a></li>
+                    <li>|</li>
+                    <li><a href="contact.html">CONTACT US</a></li>
+                    <li>|</li>
+                    <li><a href="about.html">ABOUT US</a></li>
+
+                </ul>
+                <ul class="login">
+                    <li><a href="signup.html">SIGN UP</a></li>
+                    <li><a href="login.html">LOG IN</a></li>
+                </ul>
+            </div>
+            <div class="search-cart">
+                <textarea name="about" cols="120" rows="1" placeholder="Search" class="searchbar"></textarea>
+                <button class="searchbtn">submit</button>
+                <a href="cart.html"><img id="cart" src="cart.png" alt="cart"></a>
+                <img id="wallet" src="wallet.png" alt="wallet" onclick="showPopup()">
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup for wallet balance -->
+    <div class="abcdef">
+        <div id="walletPopup" class="popupw">
+            <div class="popupw-content">
+                <div class="wallethead">
+                    <div>
+                        <h4><span style="font-weight: bold;">Wallet</span></h4>
+                    </div>
+                    <div><span class="closew" onclick="hidePopup('walletPopup')">&times;</span></div>
+                </div>
+
+                <div class="walletbal">
+                    <h1 id="walletBalance">$0.00</h1><br><br>
+                    <h5><span onclick="showTopUpPopup()">Top-up</span></h5><br>
+                    <h5><span onclick="showInstallmentPopup()">Installment</span></h5><br>
+                    <h5><span onclick="showTransactionPopup()">Transaction History</span></h5><br>
+                </div>
+            </div>
+        </div>
+
+        <div id="topUpPopup" class="popupw">
+            <div class="popupw-content">
+                <div class="wallethead">
+                    <div>
+                        <h4><span style="font-weight: bold;">Top Up</span></h4>
+                    </div>
+                    <div><span class="closew" onclick="hideTopUpPopup()">&times;</span></div>
+                </div>
+
+                <div class="walletbal">
+                    <h1 id="topUpBalance">$0.00</h1><br><br>
+                    <div class="topup-content">
+                        <div class="card-info">
+                            <div><span class="card-type">VISA 4218</span></div><br>
+                            <div>
+                                <button class="add-card" onclick="showCardPopup()">Add New Card +</button>
+                            </div>
+                        </div>
+                        <input type="text" class="topup-amount" placeholder="Enter Amount">
+                        <button class="submit-button1" onclick="submitTopUp()">Submit</button>
+                    </div>
+                </div>
+
+                <!-- Card Details Popup -->
+                <div id="cardPopup" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="hideCardPopup()">&times;</span>
+                        <h2>Add New Card</h2>
+                        <label for="cardNumber">Card Number:</label>
+                        <input type="text" id="cardNumber" placeholder="Enter card number"><br>
+                        <label for="cardHolder">Expiry Date:</label>
+                        <input type="text" id="cardHolder" placeholder="(MM/YY)"><br>
+                        <label for="expiryDate">CVV:</label>
+                        <input type="text" id="expiryDate" placeholder="CVV"><br>
+                        <label for="cvv">Name on Card:</label>
+                        <input type="text" id="cvv" placeholder="Enter Name"><br><br>
+                        <button class="submitttt" onclick="addCard()">Add Card</button>
+                    </div>
+                </div>
+
+                <script>
+                    function showCardPopup() {
+                        document.getElementById("cardPopup").style.display = "block";
+                    }
+
+                    function hideCardPopup() {
+                        document.getElementById("cardPopup").style.display = "none";
+                    }
+
+                    function addCard() {
+                        // Implement the logic to add the card details here
+                        alert("Card added successfully!");
+                        hideCardPopup();
+                    }
+                </script>
+
+                <style>
+                    /* Style for the popup modal */
+                    .modal {
+                        display: none;
+                        position: fixed;
+                        z-index: 1;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        overflow: auto;
+                        background-color: rgba(0, 0, 0, 0.4);
+                        padding-top: 60px;
+                    }
+
+                    .modal-content {
+                        margin: 5% auto;
+                        padding: 20px;
+                        border: 1px solid #888;
+                        width: 30%;
+                        /* Adjust width as needed */
+                    }
+
+                    .close {
+                        color: #aaa;
+                        float: right;
+                        font-size: 28px;
+                        font-weight: bold;
+                    }
+
+                    .close:hover,
+                    .close:focus {
+                        color: black;
+                        text-decoration: none;
+                        cursor: pointer;
+                    }
+
+                    .submitttt {
+                        border: 1px solid black;
+                        width: 100px;
+                        justify-content: left;
+                    }
+
+                    @media screen and (max-width: 768px) {
+                        .modal-content {
+                            width: 80%;
+                            /* Adjust width for tablets and small desktops */
+                        }
+                    }
+
+                    @media screen and (max-width: 480px) {
+                        .modal-content {
+                            width: 90%;
+                            /* Adjust width for mobile devices */
+                        }
+                    }
+
+                    @media screen and (max-width: 320px) {
+                        .modal-content {
+                            width: 95%;
+                            /* Adjust width for very small mobile devices */
+                        }
+                    }
+                </style>
+            </div>
+        </div>
+    </div>
+
+    <!-- Installment Popup -->
+    <div id="installmentPopup" class="popupw">
+        <div class="popupw-content">
+            <div class="wallethead">
+                <div>
+                    <h4><span style="font-weight: bold;">Installment</span></h4>
+                </div>
+                <div><span class="closew" onclick="hideInstallmentPopup()">&times;</span></div>
+            </div>
+
+            <div class="walletbal">
+                <h1 id="installmentBalance">$0.00</h1><br>
+                <div class="installment-info">
+                    <h4>Order No.:</h4>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <span>#1234</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <p>Total Remaining: <span style="color: red;">$736.44</span></p>
+                            </li>
+                            <li>
+                                <p>Next payment amount: <span style="color: red;">$38.76</span></p>
+                            </li>
+                            <li>
+                                <p>Next payment date: <span style="color: red;">1/12/2024</span></p>
+                            </li>
+                        </ul>
+                    </div>
+                    <br>
+
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <span style="color: rgb(114, 114, 114);">..............</span>
+                        </button>
+
+                    </div>
+                    <br>
+
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <span style="color: rgb(114, 114, 114);">..............</span>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transaction History Popup -->
+    <div id="transactionPopup" class="popupw">
+        <div class="popupw-content">
+            <div class="wallethead">
+                <div>
+                    <h4><span style="font-weight: bold;">Transaction History</span></h4>
+                </div>
+                <div><span class="closew" onclick="hideTransactionPopup()">&times;</span></div>
+            </div>
+
+            <div class="walletbal">
+                <h1 id="transactionBalance">$0.00</h1><br>
+                <div class="transactionhist">
+                    <div class="first">
+                        <h5>Late payment - 4218</h5>
+                        <h5><span style="color: red;">-$193.80</span></h5>
+                    </div><br>
+
+                    <div class="second">
+                        <h5>Payment</h5>
+                        <h5><span style="color: red;">-$38.76</span></h5>
+                    </div><br>
+
+                    <div class="third">
+                        <h5>Wallet Top-Up</h5>
+                        <h5><span style="color: rgb(0, 255, 21);">$38.76</span></h5>
+                    </div><br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let balance = 0;
+
+        function showPopup(id) {
+            document.getElementById(id).style.display = "flex";
+        }
+
+        function hidePopup(id) {
+            document.getElementById(id).style.display = "none";
+        }
+
+        function showTopUpPopup() {
+            showPopup('topUpPopup');
+        }
+
+        function hideTopUpPopup() {
+            hidePopup('topUpPopup');
+        }
+
+        function submitTopUp() {
+            const amountInput = document.querySelector('.topup-amount').value;
+            const amount = parseFloat(amountInput);
+            if (!isNaN(amount)) {
+                balance += amount;
+                updateBalances();
+                document.querySelector('.topup-amount').value = ''; // Clear the input field
+            } else {
+                alert('Please enter a valid amount');
+            }
+        }
+
+        function updateBalances() {
+            const balanceText = `$${balance.toFixed(2)}`;
+            document.getElementById("topUpBalance").textContent = balanceText;
+            document.getElementById("walletBalance").textContent = balanceText;
+            document.getElementById("installmentBalance").textContent = balanceText;
+            document.getElementById("transactionBalance").textContent = balanceText;
+        }
+
+        function showInstallmentPopup() {
+            showPopup('installmentPopup');
+        }
+
+        function hideInstallmentPopup() {
+            hidePopup('installmentPopup');
+        }
+
+        function showTransactionPopup() {
+            showPopup('transactionPopup');
+        }
+
+        function hideTransactionPopup() {
+            hidePopup('transactionPopup');
+        }
+    </script>
+
+    <div class="signup">
+        <ul>
+            <li class="s2"><a href="signup.html">
+                    <h2>SIGN UP</h2>
+                </a></li>
+            <li class="l2"><a href="login.html">
+                    <h2>LOGIN</h2>
+                </a></li>
+        </ul><br><br>
+
+        <textarea name="about" cols="90" rows="1" placeholder="Email Address" class="searchbar"
+            style="background-color: antiquewhite; border: 0px; border-bottom: 1px solid black;"></textarea><br><br><br>
+        <textarea name="about" cols="90" rows="1" placeholder="Password" class="searchbar"
+            style="background-color: antiquewhite; border: 0px; border-bottom: 1px solid black;"></textarea><br><br><br><br><br><br><br>
+        <div class="button-container">
+            <button class="signbut" onclick="showPig()">LOG IN</button>
+        </div>
+    </div>
+
+    <!-- Popup Message -->
+    <div id="pig" class="cow">
+        <div class="cow-content">
+            <a href="index.html"><span class="close-cow" onclick="hidePig()">&times;</span></a>
+            <h1>Successfully Logged in!</h1>
+        </div>
+    </div>
+
+    <footer style="display: flex; justify-content: space-around; padding: 20px; background-color: rgb(234, 234, 234); padding-top: 38px;">
+        <p>&copy; AmortiPay All Rights Reserved</p>
+        <p>Country & Region: Singapore | Indonesia | Thailand | Malaysia | Vietnam | Philippines | Brazil | México | Colombia | Chile | Taiwan</p>
+    </footer>
+
+
+    <script>
+        function showPig() {
+            document.getElementById("pig").style.display = "flex";
+        }
+
+        function hidePig() {
+            document.getElementById("pig").style.display = "none";
+        }
+    </script>
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
