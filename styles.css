@@ -287,16 +287,38 @@ a {
     display: flex;
 }
 
+@media (max-width: 400px) {
+    .body {
+        margin-left: 0px;
+        margin-right: 0px;
+        padding: 0px;
+    }
+}
+
+@media (max-width: 400px) {
+    .productcat, .row, .card .category-card, .categories, .ppoo {
+        padding: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    
+}
+
+
+
 .productcat {
     padding: 30px;
     margin-left: 15px;
     margin-right: 15px;
     margin-top: 20px;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .cat-items {
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .categories {
@@ -331,6 +353,228 @@ td {
 
 .dysonfull {
     width: 450px;
+}
+
+@media (max-width:360px) {
+    .dysonfull {
+        width: 100%;
+    }
+
+    .information h3 {
+        font-size: 3vw;
+        flex-wrap: wrap;
+    }
+
+    .information {
+        margin-left: 5px;
+        padding: 0px;
+    }
+
+    .itemsinfo {
+        margin-left: 0px;
+        padding: 0px;
+    }
+
+    .rating img {
+        width: 20px;
+        margin-bottom: 20px;
+    }
+
+    .pricebox {
+        width: 250px;
+        margin-left: 0px;
+        padding: 0px;
+    }
+
+    #voucher h5 {
+        font-size: 3vw;
+    }
+
+    #voucher img {
+        width: 150px;
+    }
+
+    #myButton {
+        margin-left: 0px;
+        margin-right: 50px;
+    }
+
+    .logoc img {
+        width: 100%;
+    }
+
+    .productinformation {
+        font-size: 2.5vw;
+    }
+
+    .uta li h3 {
+        font-size: 20px;
+    }
+
+    .quantity-button {
+        width: 10px;
+        padding: 3px;
+    }
+
+    #quantity {
+        padding: 0px;
+        font-size: 3vw;
+        width: 20px;
+    }
+
+    #minus, #plus {
+        padding: 3px;
+    }
+
+    .pear {
+        font-size: small;
+        margin-left: 10px;
+        padding-bottom: 35px;
+    }
+
+    .logocheck img {
+        width: 300px;
+    }
+
+    .qtaction1 .productinformation1 {
+        gap: 10px;
+    }
+
+    .qtaction1 .priceaction1 {
+        margin-right: 0px;
+        margin-left: 30px;
+    }
+
+    #paym{
+        gap: 0px;
+    }
+
+    .payrow1 #paym {
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 0px;
+        gap: 15px;
+    }
+
+    .daddress1 .daddress input {
+        width: 100%;
+    }
+
+    .modal .modal-content1 {
+        width: 80%;
+        padding: 0px;
+        margin: 0px;
+        margin-left: 30px;
+    }
+
+    .deladd h4 {
+        font-size: 13px;
+    }
+
+    .paytype h4 {
+        font-size: 13px;
+    }
+
+    .totalpay h4 {
+        font-size: 13px;
+    }
+
+    .ordersuminfo .totalpay {
+        gap: 40px;
+    }
+
+    .paymonth h4 {
+        font-size: 13px;
+    }
+
+    .ordersuminfo .compbtn {
+        text-align: center;
+        margin-right: 0px
+    }
+
+    .compbtn h4 {
+        padding-right: 0px;
+        padding-left: 0px;
+        font-size:13px;
+    }
+
+    .compbtn h4 {
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+    }
+    
+    .headerT .utaT {
+        margin-left: 30px;
+    }
+
+
+
+    .qtaction11 .productinformation11 {
+        gap:20px;
+    }
+
+    .qtaction11 .priceaction11 {
+        margin-right: 0px;
+    }
+
+    .topup-content input {
+        width: 80px;
+        height:30px;
+        font-size: 9px;
+        margin-top: 15px;
+    }
+
+    .topup-content button {
+        width: 80px;
+        height: 30px;
+        font-size: 10px;
+    }
+
+    .card-info .card-type {
+        font-size: 15px;
+        padding: 3px;
+    }
+
+    .dropdown button {
+        width: 90px;
+    }
+
+    .ahead1 h3 {
+        font-size: 15px;
+    }
+
+    .ahead1 p {
+        font-size: 10px;
+    }
+
+    body .ahead1 {
+        gap: 20px;
+    }
+
+    .Locate iframe {
+        width: 100%;
+    }
+
+    .cat-items .productcat {
+        padding: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    body .products {
+        padding: 10px;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 0px;
+    }
+
+    #myButton img {
+        width: 20px;
+    }
+
+    
 }
 
 .contentdyson { 
@@ -591,9 +835,7 @@ td {
     margin-top: 5px;
 }
 
-.logocheck img {
-    width: 500px;
-}
+
 
 .daddress {
     padding: 20px;
