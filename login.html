@@ -20,7 +20,7 @@
                 <ul class="nav-links">
                     <li><a href="index.html">HOME</a></li>
                     <li>|</li>
-                    <li><a href="tracking.html">TRACKING</a></li>
+                    <li><a href="login.html">TRACKING</a></li>
                     <li>|</li>
                     <li><a href="contact.html">CONTACT US</a></li>
                     <li>|</li>
@@ -35,8 +35,8 @@
             <div class="search-cart">
                 <textarea name="about" cols="120" rows="1" placeholder="Search" class="searchbar"></textarea>
                 <button class="searchbtn">submit</button>
-                <a href="cart.html"><img id="cart" src="cart.png" alt="cart"></a>
-                <img id="wallet" src="wallet.png" alt="wallet" onclick="showPopup()">
+                <a href="login.html"><img id="cart" src="cart.png" alt="cart"></a>
+                <a href="login.html"><img id="wallet" src="wallet.png" alt="wallet"></a>
             </div>
         </div>
     </div>
@@ -335,12 +335,22 @@
             <li class="l2"><a href="login.html">
                     <h2>LOGIN</h2>
                 </a></li>
-        </ul><br><br>
+        </ul>
 
-        <textarea name="about" cols="90" rows="1" placeholder="Email Address" class="searchbar"
-            style="background-color: antiquewhite; border: 0px; border-bottom: 1px solid black;"></textarea><br><br><br>
-        <textarea name="about" cols="90" rows="1" placeholder="Password" class="searchbar"
-            style="background-color: antiquewhite; border: 0px; border-bottom: 1px solid black;"></textarea><br><br><br><br><br><br><br>
+        <style>
+            .apple {
+                text-align: center;
+            }
+        </style>
+        
+        <p class="apple">
+            Don't have an account? <a href="signup.html" style="text-decoration: underline;">Sign Up here!</a>
+        </p><br><br>
+
+        <input type="email" name="about" cols="90" rows="1" placeholder="Email Address" class="searchbar"
+            style="background-color: antiquewhite; border: 0px; border-bottom: 1px solid black;"></input><br><br><br>
+        <input type="password" name="about" cols="90" rows="1" placeholder="Password" class="searchbar"
+            style="background-color: antiquewhite; border: 0px; border-bottom: 1px solid black;"></input><br><br><br><br><br><br><br>
         <div class="button-container">
             <button class="signbut" onclick="showPig()">LOG IN</button>
         </div>
@@ -349,7 +359,7 @@
     <!-- Popup Message -->
     <div id="pig" class="cow">
         <div class="cow-content">
-            <a href="index.html"><span class="close-cow" onclick="hidePig()">&times;</span></a>
+            <a href="indexL.html"><span class="close-cow" onclick="hidePig()">&times;</span></a>
             <h1>Successfully Logged in!</h1>
         </div>
     </div>
